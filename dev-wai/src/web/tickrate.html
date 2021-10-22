@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+    <head>
+            <link rel="stylesheet" type="text/css" href="style.css">
+        <title>
+            Gry komputerowe
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+          $( function() {
+            $( "#progressbar" ).progressbar({
+              value: 0
+            });
+          } );
+          $( function() {
+             $( "#dialog" ).dialog();
+          } );
+          </script>
+    </head>
+    <body>
+            <div class="header">
+                    <h1>Competitive Gaming</h1>
+                   
+                  </div>
+                  
+                  <div class="topnav">
+                    <a href="index.html">Games</a>
+                    <a href="Events.html">Contact me</a>
+                    <a href="text.php">Galeria</a>
+                    <a href="#" class="active">Reaction Test</a>
+                    <a href="search.html">Search img</a>
+                  </div>
+
+                      <h2>Test reakcji</h2>
+
+                      <div id="dialog" title="Test">
+                          <p>Po kliknięciu przycisku start odbędzie się 5 prób. Gdy pojawi się zielony kolor należy jak najszybciej kliknąć</p>
+                      </div>
+
+                  <button id="myBtn" onclick="myFun()" value="wait for green">Start</button>
+                  <p id="demo"></p>
+                  <script>
+
+                      var x = document.createElement("P");
+                      var average=0;
+                      var times=0;
+                      var d,n,v=0;
+
+                      function myFun() {
+                        if(times>3){
+                        document.getElementById("myBtn").onclick=false;
+                        document.getElementById("myBtn").style.background='slateblue';
+                        document.getElementById("myBtn").style.color='yellow';
+                        document.getElementById("myBtn").textContent="koniec";
+
+                        }
+                        else
+                        {
+                        var x=document.getElementById("myBtn").value;
+                        document.getElementById("demo").insertBefore = x;
+                        document.getElementById("myBtn").style.background='yellow';
+                        document.getElementById("myBtn").style.color='green';
+                        document.getElementById("myBtn").textContent="-----";
+
+                        myFunction();
+                        }
+                      }
+
+
+                    function clic() {
+                        d = new Date();
+                        n = d.getTime();
+                        document.getElementById("demo").innerHTML = " ";
+                        document.getElementById("myBtn").style.background='lightgreen';
+                        document.getElementById("myBtn").click=false;
+                        document.getElementById("myBtn").style.color='violet';
+                        document.getElementById("myBtn").textContent="click me";
+                        window.addEventListener("click",respond);
+                    }
+                    function respond()
+                    {
+                        var p = new Date();
+                        times=times+1;
+                        var o = p.getTime();
+                        average=average+o-n;
+                        document.getElementById("demo").insertAdjacentText("afterbegin", o-n + " milliseconds.    Try:" + times + "/5.   ");
+                        document.getElementById("demo").insertAdjacentText("beforeend", " average: " + average/times + " milliseconds");
+                        window.removeEventListener("click",respond);
+                        v=v+20;
+                        $('#progressbar').progressbar({value:v});
+                    }
+
+                     function myFunction() {
+                    var min = 1,max = 5;
+                    var rand = Math.floor(Math.random() * max + min); 
+                    setTimeout(clic, rand * 1000);
+                    }
+                  </script>
+                  <div id="progressbar" style="color: aqua;">
+                  </div>
+
+                  
+    </body>
+</html>

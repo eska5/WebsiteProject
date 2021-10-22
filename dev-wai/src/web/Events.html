@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <link rel="stylesheet" type="text/css" href="style1.css">
+        <title>
+            Gry komputerowe
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="sessionstor.js"></script>
+    </head>
+    <body>
+            <div class="header">
+                    <h1>Competitive Gaming</h1>
+                   
+                  </div>
+                  
+                  <div class="topnav">
+                    <a href="index.html" >Games</a>
+                    <a href="#" class="active">Contact me</a>
+                    <a href="text.php">Galeria</a>
+                    <a href="tickrate.html">Reaction Test</a>
+                    <a href="search.html">Search img</a>
+                  </div> 
+                  <form>
+                    <p>
+                    First name:
+                    <input type="text" id="firstname" name="firstname"><br>
+                    Last name:
+                    <input type="text" id="lastname" name="lastname"><br>
+                    Email:
+                    <input type="email" id="email" name="email"><br>
+                    Additional informations:
+                    <input type="text" id="text" name="text"><br>
+                      Telephone: 
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" required><br>
+                    <input type="radio" name="gender" value="male" checked> Male<br>
+                    <input type="radio" name="gender" value="female"> Female<br>
+                    <input type="radio" name="gender" value="other"> Other<br>
+                    <input type="submit" onclick="sstor();" value="add to SessionStorage">
+                    <input type="submit" onclick="Show();" value="Show SessionStorage">
+                    <input type="reset" value="reset">
+                    </p>
+                  </form>         
+
+                  <button onclick="changecolor()">Change background color</button>
+    </body>
+</html>
